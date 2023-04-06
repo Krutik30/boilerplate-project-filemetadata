@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+string left_shift(string str)
+{
+    char temp = str[0];
+    for (int i = 1; i < str.length(); i++)
+    {
+       str[i-1] = str[i];
+    }
+    str[str.length()-1] = temp;
+    return str;
+}
+
+string right_shift(string str)
+{
+    char temp = str[str.length()-1];
+    for (int i = str.length()-2; i >= 0; i--)
+    {
+        str[i+1] = str[i];
+    }
+    str[0] = temp;
+    return str;
+}
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    string str;
+	    cin>>str;
+	    if(left_shift(str) == right_shift(str))
+	        cout<<"YES"<<endl;
+	    else
+	        cout<<"NO"<<endl;
+	}
+	return 0;
+}
